@@ -1,0 +1,55 @@
+<%=%> 안에 넣으면 계산 가능= system.out.println();
+
+httpservlet: http서버를 만들수 있는 도구
+
+
+controller 내부:
+
+@WebServlet("/hello")=> 뒤에 붙을 url
+public class HomeController extends HttpServlet { => 서블릿을 상속받았다.
+	private static final long serialVersionUID = 1L;
+
+	public HomeController() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.getWriter().append("반갑습니다 나는 HomeController 입니다");=> 이 내용을 사용자에게 response 한다.
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+} 우리는 서블릿의 역할을 몰라도 된다.
+
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setAttribute("name", "홍길동"); => name이라는 변수를 만들고 홍길동이라는 데이터를 세팅
+		request.getRequestDispatcher("/WEB-INF/views/hello.jsp")=> ()안에 들어있는 곳에 request와 repson을 보낸다. (request에는 홍길동이 담겨있음) => 이를 랜더링이라고 함
+		.forward(request, response);
+	}
+
+
+	@Controller
+public class HomeController {
+	@RequestMapping(value = "/", method = RequestMethod.GET)=> 누군가 내 프로젝트에 /라고 요청을 하면 home을 실행할거다.
+	public String home(Locale locale, Model model) {
+		return "home";
+	}
+}
+
+
+
+<c:forEach items="${ADDRS}" var="ADDRS"> => ADDRS 리스트를 ADDRS 변수에 저장
+	<ul>
+		<li>${ADDRS.name}</li>
+		<li>${ADDRS.age}</li>
+		<li>${ADDRS.tel}</li>
+		<li>${ADDRS.address}</li>
+	</ul>
+	 </c:forEach>
