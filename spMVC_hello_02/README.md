@@ -9,9 +9,9 @@
 
 - maven- compiler-plugin java 버전 property 로 변경
 <!-- Logging --> 여기 하나만 남기고 밑에 inject까지 삭제
-- lombok 설정- 추가
+- lombok 설정- 최신추가
 
-- logback 설정- 추가
+- logback 설정- 1.2.12 추가 
 
 - 프로젝트 우클릭 메이븐 -update project해줘야함
 
@@ -37,4 +37,28 @@ interface를 Impl하여 작성한다.
 
 view 파일 세팅 
 <!DOCTYPE html> 위에
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 세팅
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 세팅 
+그리고 <c:forEach items="${USERS }" var="USER"></c:forEach>
+
+
+
+
+입력한 Dto 값을 저장 버튼을 누른 후 보여주고 싶을때
+controller 에
+
+@RequestMapping(value = "/user/input", method = RequestMethod.GET)
+	public String userinput() {
+		return "user/input";
+	}
+
+	@RequestMapping(value = "/user/input", method = RequestMethod.POST)
+	public String userInput( UserDto userDto, Model model) {		
+		model.addAttribute("USER", userDto);
+		return "user/view";
+	}
+이렇게 get과 post를 추가해주고  
+dto값을 그대로 model에 넣는다
+return 은 폴더의 파일 이고 value가 실제 사이트의 도메인이다.
+
+
+
