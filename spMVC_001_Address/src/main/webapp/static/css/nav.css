@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+nav.main {
+  background-color: blue;
+  color: white;
+}
+
+nav.main ul {
+  list-style: none;
+  display: flex;
+}
+
+nav.main li {
+  /* top and bottom, left and right */
+  margin: 12px 16px;
+  /* top right bottom left 순서 */
+  padding: 10px 12px 8px 12px;
+  border-bottom: 2px solid transparent;
+  transition: 0.7s;
+}
+nav.main li:hover {
+  border-bottom: 2px solid yellow;
+  cursor: pointer;
+}
+
+nav.main li:nth-of-type(2) {
+  margin-left: auto;
+}
+nav.main li.admin {
+  margin-left: auto;
+}

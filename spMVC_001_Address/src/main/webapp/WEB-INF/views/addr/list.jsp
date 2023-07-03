@@ -11,7 +11,14 @@
 
 	<c:forEach begin="0" end="10" var="INDEX">
 		<c:set value="${ADDRS[INDEX]}" var="ADDR" />
-		<tr data-id="${ADDR.a_id}">
+		
+		<%
+		 // td를 감싸고 있는 tr요소에 
+		 // 현재 리스트의 주소정보의 a_id 값을 data-id속성에 세팅하기
+		// data는 tag의 속성이고- 변수 형식으로 만든다
+		// id=${ADDR.a_id} 와 같은 변수를 생성하는 것이 된다.
+		 
+		 %><tr data-id="${ADDR.a_id}">
 			<td>${ADDR.a_id}</td>
 			<td>${ADDR.a_name}</td>
 			<td>${ADDR.a_tel}</td>
@@ -27,6 +34,11 @@
 	</ul>
 </div>
 <div class="main button_box">
+
+<%
+// 주소추가를 클릭하면 서버에 insert url로 GET request를 보낸다.
+// GET / insert HTTP1.0
+%>
 	<a href="${rootPath}/insert">주소추가</a>
 
 </div>
