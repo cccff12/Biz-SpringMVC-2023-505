@@ -16,6 +16,7 @@ nav.main li {
   /* top right bottom left 순서 */
   padding: 10px 12px 8px 12px;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
   transition: 0.7s;
 }
 nav.main li:hover {

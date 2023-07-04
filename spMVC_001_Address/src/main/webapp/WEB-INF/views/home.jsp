@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
-<c:set value="20230703-26" var="version" />
+<c:set value="20230704-05" var="version" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>나의 주소록</title>
 <link href="${rootPath}/static/css/main.css?${version}" rel="stylesheet">
 <link href="${rootPath}/static/css/nav.css?${version}" rel="stylesheet">
 <link href="${rootPath}/static/css/table.css?${version}"
@@ -20,6 +20,8 @@
 	rel="stylesheet" />
 <link href="${rootPath}/static/css/user/login.css?${version}"
 	rel="stylesheet" />
+
+
 <script>
 	//jsp에서 사용하는 rootpath 변수를
 	// js코드에서 사용하기 위한 rootpath변수로 재 설정
@@ -45,6 +47,7 @@
 			<%@include file="/WEB-INF/views/addr/input.jsp"%>
 		</c:if>
 		<%
+		// usercontroller의 메서드 중 login get 메서드가 있다 거기에
 		// BODY에 DETAIL 이 있다면 detail.jsp에 보여라
 		%>
 		<c:if test="${BODY=='DETAIL'}">
@@ -56,8 +59,8 @@
 		<c:if test="${BODY=='LOGIN'}">
 			<%@include file="/WEB-INF/views/user/login.jsp"%>
 		</c:if>
-		
-		
+
+
 	</section>
 	<footer>
 		<address>CopyRight &copy; callor@callor.com</address>
@@ -65,4 +68,11 @@
 
 
 </body>
+
+<c:if test="${MSG == 'LOGOUT' }">
+	<script>
+		alert("로그아웃 되었습니다.")
+	</script>
+</c:if>
+
 </html>
