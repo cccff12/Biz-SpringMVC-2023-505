@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+div.inputbox {
+  /* border: 1px solid red; */
+  width: 100%;
+}
+
+div.inputbox input {
+  height: 30px;
+}
+div.inputbox input:nth-of-type(1) {
+  width: 10%;
+  margin-right: 0.5%;
+  margin-left: 0;
+}
+div.inputbox input:nth-of-type(2) {
+  width: 10%;
+  margin: 0.5%;
+}
+div.inputbox input:nth-of-type(3) {
+  width: 75%;
+  margin: 0.5%;
+  margin-right: 0;
+}
+
+.tablebody {
+  width: 100%;
+  background-color: cornsilk;
+  border: 1px solid black;
+}
+.tablebody.trbox {
+  /* display: flex; */
+}
+
+.divtrbox tr {
+  display: block;
+}
+
+.td {
+  border: 1px solid black;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* width: 100%; */
+}

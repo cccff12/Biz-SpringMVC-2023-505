@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* width: 초기에 보이는 box의 폭
+min-width: 화면의 폭이 줄어들 때 현재 box의 최소 크기 유지
+화면이 줄어들어도 로그인 박스의 크기는 400px을 유지하아 */
+form.user.login {
+  width: 40%;
+  min-width: 400px;
+  margin: 20px auto;
+}
+
+form.user.login fieldset {
+  border: 1px solid blue;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+css에서의 자식요소 Selector
+부모 자식 <= 가능하면 이걸 쓴다
+무보 + 자식
+부모 > 자식
+*/
+form.user.login legend {
+  padding: 1rem; /*16px, html에 지정된 폰트의 크기를 기본으로 배율조정*/
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+/* div, input button tag에 공통 style 지정 */
+
+form.user.login div,
+form.user.login input,
+form.user.login button {
+  /* calc: width , height 등을 표현할 때 표기하는 방법
+  css3에서 제공되는 함수
+  width 를 부모(form)의 width 100% 보다 150xp 만큼 작게  */
+  width: calc(100% - 150px);
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  transition: 0.8s;
+  padding: 8px;
+}
+
+form.user.login input {
+  border: 1px solid #ddd;
+}
+/* input 박스를 클릭했을때 */
+form.user.login input:focus {
+  width: calc(100% - 100px);
+}
+
+form.user.login button {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+form.user.login button:hover {
+  width: calc(100% - 100px);
+}
+
+form.user.login div.error {
+  border-radius: 25px;
+  background-color: red;
+  color: yellow;
+  padding: 8px;
+  margin: 5px;
+  font-weight: 900;
+  text-align: center;
+}
