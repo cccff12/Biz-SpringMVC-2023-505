@@ -3,6 +3,7 @@ package com.callor.bbs.controller;
 import java.util.List;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.callor.bbs.config.QualifierConfig;
 import com.callor.bbs.dao.BBsDao;
 import com.callor.bbs.models.BBsDto;
 import com.callor.bbs.service.FileService;
@@ -19,12 +21,32 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 
+	/*
+	 * @Qualifier(QualifierConfig.SERVICE.FILE_V2)
+	 * 
+	 * 2개 이상의 component 들이 같은 Service interface를 상속받아 생성된 경우
+	 * 이 Component 를 주입받아 사용하는 곳에서는 어떤 Component 를 주입받아 
+	 * 사용해야 하는지 알수가 없다.
+	 * 
+	 * 이때는 @Component 에 이름을 부여하고
+	 * 사용할 곳에서 주입받을 떄 @qualifier()를 통해 명시적으로 
+	 * 어떤 Component 를 주입받을지 지정해 주어야 한다.
+	 * 
+	 * 
+	 */
 	
 	private final FileService fileService;
 	private final BBsDao bbsDao;
 
-	public HomeController(FileService fileService, BBsDao bbsDao) {
+	public HomeController(
+			@Qualifier(QualifierConfig.SERVICE.FILE_V2)
+			FileService fileService,
+			
+			
+			BBsDao bbsDao) {
 		super();
+		
+		
 		this.fileService = fileService;
 		this.bbsDao = bbsDao;
 	}

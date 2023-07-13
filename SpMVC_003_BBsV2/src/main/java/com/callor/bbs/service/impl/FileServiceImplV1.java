@@ -2,6 +2,7 @@ package com.callor.bbs.service.impl;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.core.io.Resource;
@@ -10,11 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.callor.bbs.config.QualifierConfig;
 import com.callor.bbs.service.FileService;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
-@Service
+//@Service("fileServiceV1")
+@Service(QualifierConfig.SERVICE.FILE_V1)
 public class FileServiceImplV1 implements FileService {
 
 //	서버의 폴더 등 자원(resource)에 접근할때 사용할 객체
@@ -29,7 +32,7 @@ public class FileServiceImplV1 implements FileService {
 	
 
 	@Override
-	public String fileUp(MultipartFile file) throws Exception {
+	public String fileUp(MultipartFile file) throws Exception  {
 //		filePath: /files
 //		/webapp/files 폴더에 대한 정보를 가지고 있는 객체가 된다.
 //		/webapp 폴더는 단순한 방법으로 정보를 가져올 수 없다.
