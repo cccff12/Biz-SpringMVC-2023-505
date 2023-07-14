@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2023-07-14T04:08:51.489Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="9KlttsHQoY_ORkTh2LtT" version="21.5.2" type="device">
+  <diagram name="페이지-1" id="N8n7aJgkxxEMxBiP3NPM">
+    <mxGraphModel dx="1799" dy="1001" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-1" value="차량운행" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-9" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-2" value="no." style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-3" value="구분" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-8" value="출발일자" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-9" value="출발시간" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-10" value="출발거리" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-13" value="도착일자" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-14" value="도착시간" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-15" value="도착거리(km)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="930" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-16" value="장소" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-17" value="소요비용" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="370" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-10" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="201" y="385" as="sourcePoint" />
+            <mxPoint x="610" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-13" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="211" y="395" as="sourcePoint" />
+            <mxPoint x="620" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-21" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-14" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="221" y="405" as="sourcePoint" />
+            <mxPoint x="630" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-15" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="231" y="415" as="sourcePoint" />
+            <mxPoint x="640" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-23" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-16" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="241" y="425" as="sourcePoint" />
+            <mxPoint x="650" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-24" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-17" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="251" y="435" as="sourcePoint" />
+            <mxPoint x="660" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-2" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="380" as="sourcePoint" />
+            <mxPoint x="610" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-26" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-3" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="380" as="sourcePoint" />
+            <mxPoint x="610" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-3Ia1M7fYGQDs6Li7xgi-27" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="-3Ia1M7fYGQDs6Li7xgi-8" target="-3Ia1M7fYGQDs6Li7xgi-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="390" as="sourcePoint" />
+            <mxPoint x="620" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
