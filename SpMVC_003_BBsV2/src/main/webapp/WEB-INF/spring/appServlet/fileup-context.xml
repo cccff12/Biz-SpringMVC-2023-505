@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/task https://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<bean class="java.lang.String" id="windowsPath">
 		<constructor-arg value="c:/windows" />
 
@@ -29,13 +31,12 @@
 <!-- files로 요청이 들어오면 -->
 <!-- img src="/app/files/imge1.jpg" 라고 요청을 했을 때 밑에 3가지 중에 있으면 보여주고 없으면 엑박처리해라
 다중 파일 검색 코드-->
-	<mvc:resources  mapping="/files/**" 
-	location="/files/,
+	<mvc:resources  mapping="/files/**" location="/files/,
 	file:///c:/app/upload/,
-	file:///Users/callor/Document/workspace/files/"	>
+	file:///Users/callor/Document/workspace/files/"	
+	/>
 
-	</mvc:resources>
-
+<task:annotation-driven/>
 
 
 
