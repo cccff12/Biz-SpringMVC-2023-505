@@ -1,11 +1,16 @@
 package com.callor.bbs.controller;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,8 +61,31 @@ public class HomeController {
 		return "home";
 	}
 
+	
+	/*
+	 * @ModelAttribute("BBS")
+	 * GET/ insert 가 호출될대
+	 * 아직 bbsDto 객체는 null 인 상태이다
+	 * bbsDto 가 null인 경우 
+	 * 어딘가에 @modelattribute ("BBS") 라는 이름이 부착된
+	 * method를 찾는다
+	 * 만약 method가 발견되면 자동으로 해당method를 호출
+	 */
+	
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String insert() {
+	public String insert(
+//			sj
+//			여기 @ModelAttribute 는 밑의 아직 값이 들어가지 않은 null의 BBS에
+//			여기 홈 콘트롤러 클래스의 맨 밑의 getBBsDto() 메서드의 리턴 값을 여기 
+//			bbsDto 객체에 저장한다.
+			@ModelAttribute("BBS")
+			BBsDto bbsDto
+		) {
+		
+		
+//		model.addAttribute("BBS", bbsDto);
+		
 		return "input";
 	}
 
@@ -102,4 +130,36 @@ public class HomeController {
 
 	}
 
+	
+	@ModelAttribute("BBS")
+	public BBsDto getBBsDto() {
+		BBsDto bbsDto = new BBsDto();
+
+		Date date = new Date(System.currentTimeMillis());
+		Calendar calendar = Calendar.getInstance();
+
+//		현재날자와 시간 getter 하기
+		LocalDateTime localDateTime = LocalDateTime.now();
+		
+//		날자를 문자열로 변환하기 위한 pattern 생성
+		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		시간을 문자열로 변환하기 위한 pattern 생성
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+//		날짜 형식의 데이터를 문자열로 바꾸기
+		String strDate = localDateTime.format(dateFormatter);
+//		시간형식의 데이터를 문자열로 변환
+		String strTime = localDateTime.format(timeFormatter);
+
+		
+		bbsDto.setB_date(strDate);
+		bbsDto.setB_time(strTime);
+		bbsDto.setB_username("callor");
+		
+		
+		return bbsDto;
+	}
+	
+	
+	
 }
