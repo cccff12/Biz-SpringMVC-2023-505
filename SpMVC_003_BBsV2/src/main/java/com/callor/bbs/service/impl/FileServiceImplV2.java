@@ -1,13 +1,17 @@
 package com.callor.bbs.service.impl;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.callor.bbs.config.QualifierConfig;
+import com.callor.bbs.models.FileDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +38,8 @@ public class FileServiceImplV2 extends FileServiceImplV1 {
 	protected final String macHome;
 	protected final String macPath;
 
-	public FileServiceImplV2(ResourceLoader resource, String winPath, String macPath, String macHome, String windowsPath) {
+	public FileServiceImplV2(ResourceLoader resource, String winPath, String macPath, String macHome,
+			String windowsPath) {
 
 		/*
 		 * super() : 상속받은 클래스의 생성자에게 무언가를 전달할때 사용하는 method 이자 일종의 전달자 V1 클래스의 생성자에게
@@ -45,7 +50,7 @@ public class FileServiceImplV2 extends FileServiceImplV1 {
 		this.winPath = winPath;
 		this.macHome = macHome;
 		this.macPath = macPath;
-		this.windowsPath=windowsPath;
+		this.windowsPath = windowsPath;
 	}
 
 	/*
@@ -65,35 +70,59 @@ public class FileServiceImplV2 extends FileServiceImplV1 {
 //		}
 //		
 //		
-		
-		String fileUpPath = macHome+macPath;
+
+		String fileUpPath = macHome + macPath;
 		File path = new File(windowsPath);
-		if(path.exists()) {
-			fileUpPath= winPath;
+		if (path.exists()) {
+			fileUpPath = winPath;
 		}
-		
-		
+
 //		만약 System에 Upload할 path가 없으면 생성하라
-		path= new File(fileUpPath);
-		if(!path.exists()) {
+		path = new File(fileUpPath);
+		if (!path.exists()) {
 //		폴더를 만들어라
-			path.mkdirs();	
+			path.mkdirs();
 		}
 //		실제 업로드 될 파일 이름
-		String fileName= file.getOriginalFilename();
-		
+		String fileName = file.getOriginalFilename();
+
 //		JAVA 에서 제공하는 UUID 생성하는 코드
-		String strUUID= UUID.randomUUID().toString();
+		String strUUID = UUID.randomUUID().toString();
 //		image.jpg0000-0000-0000
-		
+
 //		UUID 키 값을 파일이름 앞에 부착하여 새로운 이름으로 변경
-		fileName= String.format("%s-%s", strUUID,fileName);
-		
-		File upLoadFile = new File(fileUpPath,fileName);
-		
+		fileName = String.format("%s-%s", strUUID, fileName);
+
+		File upLoadFile = new File(fileUpPath, fileName);
+
 		file.transferTo(upLoadFile);
-		
+
 		return fileName;
+	}
+
+	@Override
+	public List<FileDto> filesUp(MultipartHttpServletRequest files) throws Exception {
+
+		List<MultipartFile> fileList = files.getFiles("b_images");
+/*
+ * 멀티파일을 각 파일로 분리하여 fileUp() 에게 파일을 업로드하도록
+ * 요청하고, 원본이름과 변경된 이름을 받아서 returnFiles 를 만들기
+ */
+List<FileDto> returnFiles = new ArrayList<FileDto>();		
+		for(MultipartFile file : fileList) {
+			
+//			builer 패턴 : 저장할 때 set을 생략하지만 가져다 쓸때 get은 써줘야 한다.
+			FileDto fileDto = FileDto.builder()
+					.i_originalName(file.getOriginalFilename())
+					.i_uploadName(this.fileUp(file)).build();
+//			원본파일 이름을 매개변수로
+//			fileDto.setI_originalName(file.getOriginalFilename());
+//			fileDto.setI_uploadName(this.fileUp(file));
+			returnFiles.add(fileDto);
+		}
+
+		return returnFiles; 
+	
 	}
 
 }

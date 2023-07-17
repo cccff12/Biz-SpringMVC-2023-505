@@ -12,21 +12,34 @@
 		B.b_username, U.nickname,
 		B.b_subject, B.b_content, B.b_count,
 		B.b_update
-		FROM tbl_bbs B 
-			LEFT JOIN tbl_user U
-				ON B.b_username = U.username
-		LIMIT 10
+		FROM tbl_bbs B
+		LEFT JOIN tbl_user U
+		ON B.b_username = U.username
+		LIMIT 50
 	</select>
 
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="b_seq">
 
-		INSERT INTO tbl_bbs(
-			b_pseq, b_date, b_time, b_username,
-			b_subject, b_content, b_count, b_image
+		INSERT
+		INTO tbl_bbs(
+		b_pseq, b_date, b_time, b_username,
+		b_subject, b_content, b_count, b_image
 		) VALUES(
-			#{b_pseq}, #{b_date}, #{b_time}, #{b_username},
-			#{b_subject}, #{b_content}, #{b_count}, #{b_image}
+		#{b_pseq}, #{b_date}, #{b_time}, #{b_username},
+		#{b_subject}, #{b_content}, #{b_count}, #{b_image}
 		)
+		
+		<!-- oracle에서 사용시 이걸 붙여줘야 한다. -->
+	<selectKey databaseId="oracle" order="BEFORE"
+		keyColumn="b_seq" keyProperty="b_seq">
+		SELECT SEQ_BBS.NEXTVAL FROM DUAL
+	</selectKey>
+		
 	</insert>
+
+	
+
+
+
 
 </mapper> 

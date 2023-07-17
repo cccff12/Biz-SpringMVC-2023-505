@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.callor.bbs.models.FileDto;
+
 /*
  * File Upload를 수행할 Service클래스의 prototype
  * 파일만 서버에 업로드 하기 위한 클래스
@@ -38,7 +40,7 @@ public interface FileService {
 	public String 
 		fileUp(MultipartFile file) throws Exception;
 	
-	public List<String>
+	public List<FileDto>
 		filesUp(MultipartHttpServletRequest files) throws Exception;
 	
 	public String delete(String fileName);

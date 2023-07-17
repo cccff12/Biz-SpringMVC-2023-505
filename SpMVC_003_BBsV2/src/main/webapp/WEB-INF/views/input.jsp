@@ -24,6 +24,16 @@
 		<input name="b_file" type="file" 
 			accept="image/*,audio/*,video/*" />
 		</div>
+		<div>
+		<label>이미지 리스트</label>
+		<!-- multiple 이라는 속성을 넣으면 파일을 여러개 넣을 수 있다. -->
+		<input name="b_images" type="file"
+			multiple="multiple" 
+			accept="image/*" />
+		</div>
+		
+		
+		
 		<div class ="button-box"><button>저장하기</button></div>
 	</form>
 <div>
