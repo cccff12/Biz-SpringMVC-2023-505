@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+form.main {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  /* 기본값은 flex-wrap 은 기본값이 none인데 
+  wrap으로 하면 화면을 벗어났을 때 보인다 */
+  flex-wrap: wrap;
+}
+
+form.main div {
+  flex: 1;
+  margin: 5px;
+}
+
+form.main input {
+  padding: 5px;
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+form.main div.input {
+  display: flex;
+  flex-direction: column;
+}
+
+form.main div.error {
+  display: none;
+  color: red;
+}
+
+form.main div.error.on {
+  display: inline-block;
+}
