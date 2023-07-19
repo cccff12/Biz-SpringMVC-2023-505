@@ -2,8 +2,10 @@ package com.callor.car.controller;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,14 +32,17 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(
 //			모델 attribute를 쓰지 않아도 알아서 잘 담아준다
-			@ModelAttribute("CAR") CarDto carDto) {
+			@ModelAttribute("CAR") CarDto carDto,Model model) {
 		log.debug("나는 홈 콘트롤러");
-		return "home";
+		List<CarDto> carList =carService.selectAll();
+		model.addAttribute("CAR_LIST",carList);
+		return "car/input";
 	}
 
 //	입력창은 이미 home에서 보여주고 있으니 get을 안만들고 바로 post생성
 	@RequestMapping(value = "/input", method = RequestMethod.POST)
 	public String input(@ModelAttribute("CAR") CarDto carDto) {
+		int result = carService.insert(carDto);
 		return "redirect:/";
 	}
 

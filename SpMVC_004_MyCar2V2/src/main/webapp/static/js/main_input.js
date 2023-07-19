@@ -1,32 +1,106 @@
-const INPUT_INDEX = {
-  C_CARNUM: 0,
-  C_QTY: 1,
-  C_USERNAME: 2,
-  C_SDATE: 3,
-  C_STIME: 4,
+const ERROR_MESSAGE = {
+  CARNUM: "* 차량번호를 입력하세요",
+  QTY: "* 업무명을 입력하세요",
+  USERNAME: "*사용자명을 입력하세요",
+  SDATE: "* 시작일자를 입력하세요",
+  STIME: "* 시작시간을 입력하세요",
+  SKM: "* 출발KM를 입력하세요",
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const main_form = document.querySelector("form.main");
+  const input_carnum = document.querySelector("#c_carnum");
+  const input_sdate = document.querySelector("#c_sdate");
+  const input_stime = document.querySelector("#c_stime");
+  const input_qty = document.querySelector("#c_qty");
+  const input_skm = document.querySelector("#c_skm");
+  const input_username = document.querySelector("#c_username");
+  const btn_save = document.querySelector("#btn_save");
 
-  const formEnterHandler = (e) => {
-    const target = e.target;
+  const err_box_list = document.querySelectorAll("div.error");
+  const err_carnum = document.querySelector("div.error.c_carnum");
+  const err_qty = document.querySelector("div.error.c_qty");
+  const err_username = document.querySelector("div.error.c_username");
+  const err_sdate = document.querySelector("div.error.c_sdate");
+  const err_stime = document.querySelector("div.error.c_stime");
+  const err_skm = document.querySelector("div.error.c_skm");
 
-    // 화면에서 엔터(13)가 눌리고
-    // focus() 대싱이 INPUT tag면
-    if (e.keyCode === 13 && target.tagName === "INPUT") {
-      // focus()가 있는 input tag의 name속성을 getter
-      //   대문자로 변경하라
-      const input_name = target["name"].toUpperCase();
-      //   현재 focus()가 있는 input tag가 몇 번째 tag이냐
-      const input_index_num = INPUT_INDEX[input_name];
-      //      현재 focus()가 있는 input tag가 마지막 input이 아니면
-      if (input_index_num < Object.keys(INPUT_INDEX).length - 1) {
-        // 다음번 input box로 이동하라
-        document.querySelectorAll("input")[input_index_num + 1].focus();
-      }
+  const err_clear = () => {
+    for (let box of err_box_list) {
+      box?.classList.remove("on");
     }
   };
-  document.addEventListener("keydown", formEnterHandler);
-  document.querySelector("input[name='c_carnum']").focus();
+
+  // input box에 focus()를 설정하고 입력된 Text가 있으면
+  // Text 전체를 블럭으로 설정하라
+  input_carnum.select();
+
+  // carnum box에서 focus가 벗어나면 어그로
+  input_carnum.addEventListener("blur", async () => {
+    err_clear();
+    // 값이 있는지 검사
+    if (!err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM)) {
+      return false;
+    }
+    // 차량번호 서버에 조회요청
+    const carnum = input_carnum.value;
+    const res = await fetch(`${rootPath}/car_check?carnum=${carnum}`);
+    const json = await res.json();
+    if (json.c_carnum === "NOT") {
+      err_carnum.classList.add("on");
+      err_carnum.innerHTML = "* 한 번도 사용하지 않은 차량번호입니다";
+      input_skm.value = "";
+    } else {
+      input_skm.value = json.c_ekm;
+    }
+  });
+
+  input_qty?.addEventListener("blur", () => {
+    err_clear();
+    if (!err_message(input_qty, err_qty, ERROR_MESSAGE.QTY)) {
+      return false;
+    }
+  });
+
+  input_sdate?.addEventListener("blur", () => {
+    err_clear();
+    if (!err_message(input_sdate, err_sdate, ERROR_MESSAGE.SDATE)) {
+      return false;
+    }
+  });
+
+  input_stime?.addEventListener("blur", () => {
+    err_clear();
+    if (!err_message(input_stime, err_stime, ERROR_MESSAGE.STIME)) {
+      return false;
+    }
+  });
+
+  input_skm?.addEventListener("blur", () => {
+    err_clear();
+    if (!err_message(input_skm, err_skm, ERROR_MESSAGE.SKM)) {
+      return false;
+    }
+  });
+
+  input_username?.addEventListener("blur", () => {
+    err_clear();
+    if (!err_message(input_username, err_username, ERROR_MESSAGE.USERNAME)) {
+      return false;
+    }
+  });
+
+  // addEventListener를 실행했을 때 실행할 내용
+  btn_save.addEventListener("click", () => {
+    if (
+      err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM) &&
+      err_message(input_qty, err_qty, ERROR_MESSAGE.QTY) &&
+      err_message(input_sdate, err_sdate, ERROR_MESSAGE.SDATE) &&
+      err_message(input_stime, err_stime, ERROR_MESSAGE.STIME) &&
+      err_message(input_skm, err_skm, ERROR_MESSAGE.SKM) &&
+      err_message(input_username, err_username, ERROR_MESSAGE.USERNAME)
+    ) {
+      document.querySelector("form.main").submit();
+    }
+    return false;
+  });
 });

@@ -43,6 +43,7 @@ nav.main ul {
   display: flex;
 }
 nav.main li {
+  white-space: nowrap;
   margin: 0.5rem;
   padding: 3px 0.5rem;
   color: white;
@@ -67,4 +68,23 @@ footer {
   background-color: #eee;
   text-align: center;
   text-shadow: 1px 1px 1px #fff;
+}
+
+table.main {
+  width: 70%;
+  margin: 10px auto;
+}
+
+table.main th,
+table.main td {
+  text-align: left;
+  padding: 0.8rem;
+}
+
+table.main tr:nth-of-type(odd) {
+  background-color: #efefef;
+}
+
+table.main tr:nth-of-type(even) {
+  background-color: #dfdfdf;
 }

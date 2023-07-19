@@ -4,14 +4,16 @@ form.main {
   width: 70%;
   margin: 10px auto;
   display: flex;
+  flex-direction: column;
   /* 기본값은 flex-wrap 은 기본값이 none인데 
   wrap으로 하면 화면을 벗어났을 때 보인다 */
-  flex-wrap: wrap;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 form.main div {
-  flex: 1;
-  margin: 5px;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 form.main input {
