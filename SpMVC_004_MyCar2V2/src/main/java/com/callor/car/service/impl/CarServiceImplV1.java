@@ -2,6 +2,7 @@ package com.callor.car.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.callor.car.model.CarDto;
@@ -35,4 +36,16 @@ public class CarServiceImplV1 implements CarService {
 		return carDao.selectAll();
 	}
 
+//	annotation이 autowired다.
+	/*
+	 * method에 매개변수를 자동으로 주입해 달라는 요청
+	 * 프로젝트가 시작되면 자동으로 실행
+	 */
+	@Autowired
+	public void create_table() {
+		carDao.create_carm_table(null);
+	}
+	
+	
+	
 }

@@ -15,5 +15,8 @@ public interface CarDao {
 	@Select(" SELECT * FROM tbl_carmanager "
 			+ " ORDER BY c_edate DESC, c_etime DESC ")
 	public List<CarDto> selectAll();
+
+	public void create_carm_table(String dumy);
+	
 	
 }
