@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // input box에 focus()를 설정하고 입력된 Text가 있으면
   // Text 전체를 블럭으로 설정하라
-  input_carnum.select();
+  input_carnum?.select();
 
   // carnum box에서 focus가 벗어나면 어그로
-  input_carnum.addEventListener("blur", async () => {
+  input_carnum?.addEventListener("blur", async () => {
     err_clear();
     // 값이 있는지 검사
     if (!err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM)) {
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // addEventListener를 실행했을 때 실행할 내용
-  btn_save.addEventListener("click", () => {
+  btn_save?.addEventListener("click", () => {
     if (
       err_message(input_carnum, err_carnum, ERROR_MESSAGE.CARNUM) &&
       err_message(input_qty, err_qty, ERROR_MESSAGE.QTY) &&
