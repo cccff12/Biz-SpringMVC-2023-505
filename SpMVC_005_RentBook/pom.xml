@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>rent</artifactId>
+	<name>SpMVC_005_RentBook</name>
+<!-- master project에서 가져왔고 거기서는 <packaging>pom</packaging> 으로 바꿨다
+master project는 열어놔야 한다
+ -->
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+
+	<parent>
+		<groupId>com.callor</groupId>
+		<artifactId>master</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+<!-- 필요한게 있다면 따로 추가 -->
+<dependencies>
+
+
+</dependencies>
+
+
+</project>

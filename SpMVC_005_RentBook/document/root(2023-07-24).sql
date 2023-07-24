@@ -1,0 +1,1 @@
+-- RentBook root 접속

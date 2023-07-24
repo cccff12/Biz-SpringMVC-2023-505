@@ -35,7 +35,7 @@
       }
     </style>
   </head>
-  <body>
+  <body th:with="LOGIN =${session.LOGINUSER}">
     <header th:replace="~{include :: header}" />
     <nav th:replace="~{include :: nav}" />
     <section class="main" layout:fragment="content">

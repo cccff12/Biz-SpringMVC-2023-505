@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 여기 이름 dao패키지의 Dao로 교체 -->
+<mapper namespace="com.callor.book.persistance.BookDao">
+
+	<select id="selectAll">
+		SELECT * FROM TBL_BOOKS
+			where B_CODE = #{CODE}
+			ORDER BY B_CODE DESC
+		limit 1
+	</select>
+
+	
+	<select id="findById"></select>
+	
+	
+	<insert id="insert">
+	
+	INSERT INTO TBL_BOOKS
+			(B_CODE,B_NAME,B_AUTHER,B_COMP,B_YEAR,B_IPRICE,B_RPRICE)
+		VALUES
+			(#{B_CODE},#{B_NAME},#{B_AUTHER},#{B_COMP},#{B_YEAR},#{B_IPRICE},#{B_RPRICE})
+	 
+			</insert>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+
+</mapper> 
