@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import com.callor.rent.models.BookDto;
 
 public interface BookDao {
+	
 	@Select(" SELECT * FROM tbl_books ORDER BY b_name ")
 	public List<BookDto> selectAll();
 	

@@ -26,5 +26,5 @@ private String	b_auther;
 private String	b_comp;
 private int	b_year;
 private int b_iprice;
-private int b_rptoce;
+private int b_rprice;
 }
