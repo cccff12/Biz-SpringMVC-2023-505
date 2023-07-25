@@ -18,7 +18,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 public class BookDto {
-
 	
 private String	b_code;
 private String	b_name;

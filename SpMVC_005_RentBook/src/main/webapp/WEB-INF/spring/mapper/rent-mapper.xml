@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.callor.rent.dao.RentBookDao">
+
+
+	<insert id="insert" parameterType="RentBookDto">
+		INSERT INTO tbl_rent_book(
+			RENT_SEQ, RENT_DATE, RENT_RETURN_DATE, RENT_BCODE, RENT_MCODE, RENT_RETURN_YN,
+			RENT_POINT, RENT_PRICE)
+		VALUES(
+			#{rent_seq}, #{rent_date}, #{rent_return_date}, #{rent_bcode}, #{rent_mcode},
+			#{rent_return_yn}, #{rent_point}, #{rent_price}
+		)
+	</insert>
+
+
+
+
+	<select id="create_rent_book_table">
+		CREATE TABLE IF NOT EXISTS tbl_rent_book(
+		RENT_SEQ BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		RENT_DATE VARCHAR(10) NOT NULL,
+		RENT_RETURN_DATE VARCHAR(10) NOT NULL,
+		RENT_BCODE VARCHAR(13) NOT NULL,
+		RENT_MCODE VARCHAR(6) NOT NULL,
+		RENT_RETURN_YN VARCHAR(1),
+		RENT_POINT INT,
+		RENT_PRICE INT
+		)
+	</select>
+
+
+
+</mapper>
