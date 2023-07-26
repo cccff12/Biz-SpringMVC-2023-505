@@ -27,9 +27,3 @@ RENT_RETURN_YN	VARCHAR(1),
 RENT_POINT	INT,		
 RENT_PRICE	INT		
 );
-
-DESC tbl_rent_book;
-
-select *from tbl_members;
-
-SELECT * FROM tbl_rent_book;

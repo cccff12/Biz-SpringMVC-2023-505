@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+form {
+  width: 60%;
+  margin: 1rem auto;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+/*
+
+form tag의 child div에 속성 지정하기
+form div: form 안에 있는 모든 div가 적용돼버린다
+form > div: 순수하게 form 의 자식 div에게만 적용된다 => 친아들
+
+*/
+form > div {
+  display: flex;
+  margin: 5px;
+}
+form label {
+  flex: 1;
+  text-align: right;
+  margin-right: 3px;
+}
+
+form input {
+  flex: 3;
+}
+
+div.search.container {
+  flex: 3;
+  display: flex;
+  position: relative;
+}
+div.search.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 300px;
+  overflow: auto;
+  border: 1px solid blue;
+  display: none;
+  background-color: white;
+}
+
+/* 새로 생성되는 div */
+div.search.list div {
+  padding: 0.3rem;
+  cursor: pointer;
+  /* text ellipsis : 말줄임표 만들기 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+div.search.list div:nth :nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+div.search.list div:nth :nth-of-type(even) {
+  background-color: white;
+}
+
+div.search.list div:hover {
+  background-color: #ddd;
+}
+
+span.search-item {
+  font-weight: bold;
+  color: blue;
+}

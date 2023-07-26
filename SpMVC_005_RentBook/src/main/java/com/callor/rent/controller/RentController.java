@@ -65,7 +65,7 @@ public class RentController {
 		return "redirect:/rent";
 	}
 
-//	원래대로라면 사라지지만 위의 SessionAttributes 에 설정한 덕분에 사라지지 않는다
+//	input에서 입력한 값은 원래대로라면 사라지지만 위의 SessionAttributes 에 설정한 덕분에 사라지지 않는다
 	@ModelAttribute("RENT_WORK")
 	public RentBookVO newRentBook() {
 		return new RentBookVO();
