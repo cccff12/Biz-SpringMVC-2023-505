@@ -11,3 +11,5 @@
 - 따라서 업로드된 파일들도 모두 삭제되어 버린다.
 - 업로드한 파일을 프로젝트가 진행되는 동안에 삭제가 되어 버린다.
 - 실제 업로드한 파일을 client 가 볼수 있게 하려면 `servlet-context.xml`의 `<resources mapping="/files/**" location="/files/" />` 항목에 해당 폴더정보를 등록해 주어야 한다.
+- 이미지일 경우 client web html에서는 img tag를 사용하여 해당 파일을 web 에 표현할 수 있다.
+- `<img src=/서버/files/filename.jpg` 처럼 표

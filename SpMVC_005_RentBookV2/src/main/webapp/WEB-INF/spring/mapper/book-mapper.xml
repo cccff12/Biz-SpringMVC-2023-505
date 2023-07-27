@@ -17,19 +17,44 @@
 	</insert>
 
 
+	<select id="selectSearchCount">
+		SELECT COUNT(*) FROM tbl_books
+		WHERE
+		<foreach collection="list" item="S" separator="OR">
+			b_name LIKE
+			CONCAT('%', #{S}, '%' )
+		</foreach>
+	</select>
+
+
+
+
+	<select id="selectSearchPage">
+		SELECT * FROM tbl_books
+		WHERE
+		<foreach collection="list" item="S" separator="OR">
+			b_name LIKE
+			CONCAT('%', #{S}, '%' )
+		</foreach>
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
+
 
 
 	<update id="update">
 
-UPDATE tbl_books
-	SET B_CODE = #{b_code},
-		B_NAME = #{b_name},
+		UPDATE tbl_books
+		SET B_CODE = #{b_code},
+		B_NAME =
+		#{b_name},
 		B_AUTHER = #{b_auther},
-		B_COMP = #{b_comp},
+		B_COMP =
+		#{b_comp},
 		B_YEAR = #{b_year},
 		B_IPRICE = #{b_iprice},
-		B_RPRICE = #{b_rprice}
-	WHERE B_CODE = #{b_code}
+		B_RPRICE =
+		#{b_rprice}
+		WHERE B_CODE = #{b_code}
 
 	</update>
 

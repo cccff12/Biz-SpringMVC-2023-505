@@ -15,10 +15,31 @@
 		<version>1.0.0</version>
 	</parent>
 	<!-- 필요한게 있다면 따로 추가 -->
+
+
+	<properties>
+		<tiles-version>3.0.8</tiles-version>
+
+	</properties>
+
+
 	<dependencies>
 
 
-	</dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${tiles-version}</version>
+		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles-version}</version>
+		</dependency>
+	</dependencies>
 
 </project>
