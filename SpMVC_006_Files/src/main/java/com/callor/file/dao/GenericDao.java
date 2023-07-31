@@ -15,7 +15,7 @@ public interface GenericDao<DTO, PK> {
 
 	
 	public List<DTO> selectAll();
-	public DTO findById(Long id);
+	public DTO findById(PK id);
 	
 	public int insert(DTO Dto);
 	public int update(DTO Dto);
