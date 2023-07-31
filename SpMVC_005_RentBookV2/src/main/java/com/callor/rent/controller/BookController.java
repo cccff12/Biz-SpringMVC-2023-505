@@ -102,7 +102,8 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/{bcode}/update", method = RequestMethod.POST)
-	public String update(@PathVariable("bcode") String bcode, @ModelAttribute("BOOK") BookDto bookDto, Model model) {
+	public String update(@PathVariable("bcode") String bcode,
+			@ModelAttribute("BOOK") BookDto bookDto, Model model) {
 
 //		bcode가 빈칸이 아니면 dto에 저장
 		if (!bcode.isBlank())
