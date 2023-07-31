@@ -2,38 +2,62 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.callor.file.dao.BBsDao">
-
+  
+ <mapper namespace="com.callor.file.dao.BBsDao">
 
 
 	<select id="selectAll" resultType="BBsDto">
-		SELECT * FROM tbl_bbs ORDER BY b_seq DESC;
+		SELECT * FROM tbl_bbs ORDER BY b_seq DESC
 	</select>
-
 	<select id="findById" resultType="BBsDto" parameterType="Long">
-		SELECT * FROM tbl_bbs WGERE b_seq = #{id}
+		SELECT * FROM tbl_bbs WHERE b_seq = #{id}
 	</select>
 
-
-
-
-
+	<update id="update" parameterType="BBsDto">
+		UPDATE tbl_bbs SET 
+			b_title = #{b_title},	
+			b_content = #{b_content} , 	
+			b_nickname = #{b_nickname},
+			b_password = #{b_password}, 
+			b_ccode = #{b_ccode}, 	
+			b_date = #{b_date},
+			b_viewcount =#{b_viewcount}, 
+			b_image = #{b_image}, 
+			b_origin_image = #{b_origin_image}
+		WHERE b_seq = #{b_seq}
+	</update>
+	<insert id="insert">
+		INSERT INTO tbl_bbs(
+			b_title,	b_content, 	b_nickname,
+			b_password, b_ccode, 	b_date,
+			b_viewcount, b_image, b_origin_image
+		  ) VALUES (
+			#{b_title},	#{b_content}, 	#{b_nickname},
+			#{b_password}, #{b_ccode}, 	#{b_date},
+			#{b_viewcount}, #{b_image}, #{b_origin_image}
+		  )
+		  <!-- 
+		  게시판이 insert 된후 새로 생성된 b_seq 값을 java 코드에서 조회
+		  할수 있도록 return 하기 
+		  -->
+		  <selectKey keyProperty="b_seq" order="AFTER" resultType="Long">
+		  	SELECT LAST_INSERT_ID()
+		  </selectKey>
+	</insert>
 
 	<select id="create_bbs_table">
-
-		CREATE TABLE tbl_bbs(
-		b_seq BIGINT PRIMARY key AUTO_INCREMENT,
-		b_title varchar(125),
-		b_content varchar(1000),
-		b_nickname varchar(125),
-		b_password varchar(125),
-		b_ccode varchar(6),
-		b_date varchar(10),
-		b_viewcount long,
-		b_image VARCHAR(255),
-		b_origin_image VARCHAR(255)
+		CREATE TABLE tbl_bbs (
+			b_seq BIGINT PRIMARY KEY AUTO_INCREMENT,
+			b_title varchar(125),
+			b_content varchar(1000),
+			b_nickname varchar(125),
+			b_password varchar(125),
+			b_ccode varchar(6),
+			b_date varchar(10),
+			b_viewcount long,
+			b_image VARCHAR(255),
+		    b_origin_image VARCHAR(255)
 		)
-
-	</select>
-</mapper> 
+	</select> 
+ 
+ </mapper> 
