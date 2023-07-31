@@ -2,6 +2,8 @@ package com.callor.file.service.impl;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Bean;
+
 import com.callor.file.dao.BBsDao;
 import com.callor.file.model.BBsDto;
 import com.callor.file.service.BBsService;
@@ -17,11 +19,13 @@ public class BBsServiceImplV1 implements BBsService {
 
 	@Override
 	public List<BBsDto> selecAll() {
-		
-		bbsDao.
-		
+
 		return null;
-	} 
-	
-	
+	}
+
+	@Bean
+	public void create_table() {
+		bbsDao.create_bbs_table(null);
+	}
+
 }
