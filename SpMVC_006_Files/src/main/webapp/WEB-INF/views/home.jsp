@@ -10,21 +10,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>나의 홈페이지</title>
+
+<style>
+ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+li {
+	width: 120px;
+	heigth: 200px;
+	padding: 20px 15px;
+}
+
+span.thumb {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #ccc;
+	height: 120px;
+	position: relative;
+}
+
+span.thumb em {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 120px;
+	text-align: center;
+	background-color: rgba(150,150,10,0.3);
+	opacity: 0;
+	transition:all 0.3s;
+	
+}
+span.thumb em:hover {
+	opacity: 1;
+	
+}
+
+
+</style>
 </head>
 <body>
 	<h1>사진 겔러리</h1>
-	<table>
-		<tr>
-			<td>SEQ</td>
-			<td>제목</td>
-		</tr>
+	<ul>
 		<c:forEach items="${BBS_LIST}" var="BBS">
-			<tr>
-				<td>${BBS.b_seq}</td>
-				<td><a href="${rootPath}/detail?b_seq=${BBS.b_seq}">${BBS.b_title}</a></td>
-			</tr>
+			<li><a href="${rootPath}/detail?b_seq=${BBS.b_seq}"> <span
+					class="thumb"> <img alt=""
+						src="${rootPath}/upload/${BBS.b_image}" width="100px"> <em>View</em>
+				</span> <strong>${BBS.b_title}</strong>
+
+			</a></li>
 		</c:forEach>
-	</table>
+	</ul>
 	<a href="${rootPath}/insert">갤러리 작성</a>
 
 
